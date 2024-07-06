@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>complete responsive coffee shop website design</title>
+
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- header section starts  -->
+
+  <header class="header">
+    <a href class="logo">
+      Azure Sky Café
+    </a>
+
+    <nav class="navbar">
+      <a href="#home">home</a>
+      <a href="#about">about</a>
+      <a href="#menu">menu</a>
+      <a href="#products">products</a>
+      <a href="#review">review</a>
+      <a href="#contact">contact</a>
+      <a href="#blogs">blogs</a>
+    </nav>
+
+    <div class="icons">
+      <div class="fas fa-search" id="search-btn"></div>
+      <div class="fas fa-shopping-cart" id="cart-btn"><span class="cart-badge" id="cart-badge">0</span></div>
+      <label class="switch" id="darkModeLabel" title="Dark mode: off">
+        <input type="checkbox" id="darkModeToggle" />
+        <span class="slider"></span>
+      </label>
+      <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <div class="search-form">
+      <input type="search" id="search-box" placeholder="search here..." />
+      <label for="search-box" class="fas fa-search"></label>
+    </div>
+
+    <div class="cart-items-container" id="cart-items-container">
+      <h1>Cart</h1>
+      <div id="cart-items">
+      </div>
+      <p id="empty-cart-message">No items in the cart.</p>
+      <div class="cart-total" id="cart-total">
+        <p>Total Items: <span id="total-items">0</span></p>
+        <p>Total: <span id="total-price">0.00</span></p>
+        <p>Taxes (10%): <span id="taxes">0.00</span></p>
+        <p>Total with Taxes: <span id="final-total-price">0.00</span></p>
+        <button class="btn btn-checkout" onclick="checkout()">Checkout Now</button>
+      </div>
+      <div id="notification-main-screen" class="notification-main-screen"></div>
+    </div>
+  </header>
+
+  <!-- header section ends -->
+
+  <!-- home section starts  -->
+
+  <section class="home" id="home">
+    <div class="content">
+      <h3>fresh coffee in the morning</h3>
+      <p>
+        Where every cup of coffee is a serene escape! Nestled in the heart of your city, Azure Sky Cafe is a haven for
+        coffee lovers. Enjoy premium brews, and a warm, welcoming atmosphere. Experience coffee
+        excellence in every sip at Azure Sky Cafe!
+      </p>
+      <a href="#menu" class="btn">Ready to order<span class="arrowLong"> &#10230;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- home section ends -->
+
+  <!-- about section starts  -->
+
+  <section class="about" id="about">
+    <h1 class="heading"><span>about</span> us</h1>
+
+    <div class="row">
+      <div class="image">
+        <img src="images/about-img1.jpg" alt="" />
+      </div>
+
+      <div class="content">
+        <h3>what makes our coffee special?</h3>
+        <p>
+          Our coffee shop started as a dream, inspired by the rich history and diverse flavors of coffee. Our founders
+          traveled the world to source the finest beans and learn from global coffee cultures.
+        </p>
+        <p>
+          Join us to savor the unique flavors and stories behind each blend. Whether for a quick espresso or a leisurely
+          latte, you're part of our coffee story.
+        </p>
+        <a class="btn" id="openModalButton">Our Story</a>
+        <div class="modal" id="myModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Our Story</h2>
+              <button class="close-button" id="closeModalButton">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p>In the heart of our bustling city, our coffee shop began as a humble dream. Inspired by the rich
+                history and diverse flavors of coffee, we envisioned a place where every cup tells a story. Our
+                founders, avid coffee enthusiasts, traveled the world to source the finest beans, immersing themselves
+                in the vibrant coffee cultures of South America, Africa, and beyond. <br><br>
+
+                Upon returning, they set out to create a space that celebrates the artistry and craft of coffee. Our
+                shop became a haven for coffee lovers, a place where the aroma of freshly brewed coffee mingles with the
+                sound of cheerful conversations. We pride ourselves on our dedication to quality, from our meticulously
+                sourced beans to our expertly trained baristas. <br> <br>
+
+                Each cup we serve is a testament to our passion for coffee and our commitment to creating an exceptional
+                experience for our customers. We invite you to join us on this journey, to savor the stories behind each
+                blend, and to discover the unique flavors that make coffee so captivating. Whether you're here for a
+                quick espresso or to linger over a latte, you're part of our coffee story.</p>
+            </div>
+          </div>
+        </div>
+  </section>
+
+  <!-- about section ends -->
+
+  <!-- menu section starts  -->
+
+  <section class="menu" id="menu">
+    <h1 class="heading">our <span>menu</span></h1>
+
+    <div class="box-container">
+      <div class="box">
+        <img src="images/menu-1.png" alt="" />
+        <h3>Espresso</h3>
+        <div class="price">$2.50 <span>3.25</span></div>
+        <a title="Add To Cart" id="clickButton1" class="btn" onclick="addToCart('Espresso', 2.50)">add to cart</a>
+      </div>
+
+      <div class="box">
+        <img src="images/menu-2.png" alt="" />
+        <h3>Latte</h3>
+        <div class="price">$3.50 <span>5.50</span></div>
+        <a title="Add To Cart" id="clickButton2" class="btn" onclick="addToCart('Latte', 3.50)">add to cart</a>
+      </div>
+
+      <div class="box">
+        <img src="images/menu-3.png" alt="" />
+        <h3>Cappuccino</h3>
+        <div class="price">$3.75 <span>4.75</span></div>
+        <a title="Add To Cart" class="btn" onclick="addToCart('Cappuccino', 3.75)">add to cart</a>
+      </div>
+
+      <div class="box">
+        <img src="images/menu-4.png" alt="" />
+        <h3>Americano</h3>
+        <div class="price">$2.75 <span>3.99</span></div>
+        <a title="Add To Cart" class="btn" onclick="addToCart('Americano', 2.75)">add to cart</a>
+      </div>
+
+      <div class="box">
+        <img src="images/menu-5.png" alt="" />
+        <h3>Mocha</h3>
+        <div class="price">$4.00 <span>4.99</span></div>
+        <a title="Add To Cart" class="btn" onclick="addToCart('Mocha', 4.00)">add to cart</a>
+      </div>
+
+      <div class="box">
+        <img src="images/menu-6.png" alt="" />
+        <h3>Macchiato</h3>
+        <div class="price">$3.25 <span>4.80</span></div>
+        <a title="Add To Cart" class="btn" onclick="addToCart('Macchiato', 3.25)">add to cart</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- menu section ends -->
+
+  <section class="products" id="products">
+    <h1 class="heading">our <span>products</span></h1>
+
+    <div class="box-container">
+      <div class="box">
+        <div class="icons">
+          <a title="Add To Cart" class="fas fa-shopping-cart" onclick="addToCart('Nicaragua coffee', 25.40)"></a>
+          <a title="Like" class="fas fa-heart" id="heart-icon" onclick="toggleHeartColor(this)"></a>
+          <a title="Nicaragua coffee Overview" onclick="openModal(1)" class="fas fa-eye"></a>
+        </div>
+        <div class="image">
+          <img src="images/product-1.png" alt="" />
+        </div>
+        <div class="content">
+          <h3>Nicaragua coffee</h3>
+          <div title="5 Stars" class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="price">$25.40 <span>$28.99</span></div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="icons">
+          <a title="Add To Cart" class="fas fa-shopping-cart" onclick="addToCart('Colombian coffee', 20.99)"></a>
+          <a title="Like" class="fas fa-heart" id="heart-icon" onclick="toggleHeartColor(this)"></a>
+          <a title="Colombian coffee Overview" onclick="openModal(2)" class="fas fa-eye"></a>
+        </div>
+        <div class="image">
+          <img src="images/product-2.png" alt="" />
+        </div>
+        <div class="content">
+          <h3>Colombian coffee</h3>
+          <div title="4 Stars" class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <div class="price">$20.99 <span>$25.99</span></div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="icons">
+          <a title="Add To Cart" class="fas fa-shopping-cart" onclick="addToCart('Peru coffee', 15.99)"></a>
+          <a title="Like" class="fas fa-heart" id="heart-icon" onclick="toggleHeartColor(this)"></a>
+          <a title="Peru coffee Overview" onclick="openModal(3)" class="fas fa-eye"></a>
+        </div>
+        <div class="image">
+          <img src="images/product-3.png" alt="" />
+        </div>
+        <div class="content">
+          <h3>Peru Coffee</h3>
+          <div title="4.5 Stars" class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <div class="price">$15.99 <span>$20.99</span></div>
+        </div>
+      </div>
+      <!-- new -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <span class="close-button" id="close" onclick="closeModal()">&times;</span>
+          <h2>Nicaragua Coffee Overview</h2>
+          <div class="modal-body">
+            <img src="images/product-1.png" alt="Nicaragua Coffee Image">
+            <p>Nicaragua coffee is cherished for its balanced acidity, full body, and unique fruity notes. It thrives in
+              regions with volcanic soil and high altitudes, such as Matagalpa, Jinotega, and Nueva Segovia. Sustainable
+              and organic farming practices are common, enhancing its appeal.</p> <br>
+            <p>Ingredients: 100% Arabica coffee beans</p>
+          </div>
+          <div class="modal-footer">
+            <button class="prev" onclick="prevModal(1)">Previous</button>
+            <button class="next" onclick="nextModal(1)">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <span class="close-button" id="close" onclick="closeModal()">&times;</span>
+          <h2>Colombian Coffee Overview</h2>
+          <div class="modal-body">
+            <img src="images/product-2.png" alt="Colombian Coffee Image">
+            <p>Colombian coffee is celebrated for its smooth, mild flavor and rich aroma. Grown in the high-altitude
+              regions of the Andes mountains, it benefits from ideal growing conditions, including volcanic soil and
+              consistent rainfall. The beans are primarily Arabica, known for their balanced acidity and medium body,
+              often featuring notes of fruit, caramel, and chocolate. Colombian coffee is a staple in the global coffee
+              market, renowned for its quality and consistency.</p> <br>
+            <p>Ingredients: 100% Arabica coffee beans</p>
+          </div>
+          <div class="modal-footer">
+            <button class="prev" onclick="prevModal(2)">Previous</button>
+            <button class="next" onclick="nextModal(2)">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal3" class="modal">
+        <div class="modal-content">
+          <span class="close-button" id="close" onclick="closeModal()">&times;</span>
+          <h2>Peru Coffee Overview</h2>
+          <div class="modal-body">
+            <img src="images/product-3.png" alt="Peru Coffee Image">
+            <p>Peruvian coffee is highly regarded for its rich and balanced flavors, often characterized by medium
+              acidity and a combination of nutty, floral, and fruity notes. It is primarily grown in high-elevation
+              regions such as the Andes, Amazonas, and San Martin, which provide ideal conditions for cultivating
+              high-quality Arabica beans.</p> <br>
+            <p>Ingredients: 100% Arabica coffee beans</p>
+          </div>
+          <div class="modal-footer">
+            <button class="prev" onclick="prevModal(3)">Previous</button>
+            <button class="next" onclick="nextModal(3)">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- new -->
+    </div>
+  </section>
+
+  <!-- review section starts  -->
+
+  <section class="review" id="review">
+    <h1 class="heading">customer's <span>review</span></h1>
+
+    <div class="box-container">
+      <div class="box">
+        <img src="images/quote-img.png" alt="customer review image" class="quote" />
+        <p>
+          Excellent product! Arrived faster than expected. Exceeded my quality expectations. Highly recommended, though
+          minor delivery process improvements could be made for a smoother experience.
+        </p>
+        <div class="customer-profile">
+          <img src="images/pic-1.jpg" class="user" alt="" />
+          <h3>Alice Kennedy</h3>
+          <div title="5 Stars" class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="images/quote-img.png" alt="customer review image" class="quote" />
+        <p>
+          The product is decent, but there were several issues with the packaging. It took longer than expected to
+          arrive, which significantly affected my overall satisfaction with the purchase. But the quality is best.
+        </p>
+        <div class="customer-profile">
+          <img src="images/pic-2.jpg" class="user" alt="" />
+          <h3>Sophia Miller</h3>
+          <div title="3 Stars" class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="images/quote-img.png" alt="customer review image" class="quote" />
+        <p>
+          Overall, a good product. It met my expectations in terms of quality and functionality. However, there were
+          some minor issues with the delivery process that could be improved. But recommended you to try it.
+        </p>
+        <div class="customer-profile">
+          <img src="images/pic-3.jpg" class="user" alt="" />
+          <h3>Michael Peterson</h3>
+          <div title="4 Stars" class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- review section ends -->
+
+  <!-- contact section starts  -->
+
+  <section class="contact" id="contact">
+    <h1 class="heading"><span>contact</span> us</h1>
+
+    <div class="row">
+      <iframe class="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.4692722050227!2d-79.38720758451735!3d43.65607297912147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d455555555%3A0xaaaaaaaabbbbbbbb!2sUniversity%20Ave%2C%20Toronto%2C%20ON%20M5G%200A3%2C%20Canada!5e0!3m2!1sen!2sin!4v1687131345678!5m2!1sen!2sin"
+        allowfullscreen="" loading="lazy"></iframe>
+
+      <form id="contactForm" onsubmit="return validateForm()">
+        <h3>get in touch</h3>
+        <div class="inputBox">
+          <span class="fas fa-user"></span>
+          <input type="text" name="Name" placeholder="Name" required />
+        </div>
+        <div class="inputBox">
+          <span class="fas fa-envelope"></span>
+          <input type="email" name="Email" placeholder="Email" required />
+        </div>
+        <div class="inputBox">
+          <span class="fas fa-phone"></span>
+          <input type="tel" name="Number" id="numberInput" placeholder="Number (At Least 10 Digits)" required
+            oninput="this.value = this.value.replace(/\D/g,'')" />
+          <span id="numberError" class="error-message"></span>
+        </div>
+        <input type="submit" value="contact now" class="btn" />
+        <div id="submitMessage" class="submit-message"></div>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- contact section ends -->
+
+  <!-- blogs section starts  -->
+
+  <section class="blogs" id="blogs">
+    <h1 class="heading">our <span>blogs</span></h1>
+
+    <div class="box-container">
+      <div class="box">
+        <div class="image">
+          <img src="images/blog-1.jpg" alt="https://unsplash.com/photos/brown-ceramic-teacup-XtUd5SiX464" />
+        </div>
+        <div class="content">
+          <a class="title">Exploring Coffee: Flavors and Cultures</a>
+          <span>by admin / June 27, 2024</span>
+          <p>
+            Discover the world of coffee—from Ethiopian Yirgacheffe to Colombian Supremo—exploring diverse flavors and
+            cultural richness in each sip.
+          </p>
+          <a title="Read More" onclick="openPopup(1)" class="btn">read more</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="image">
+          <img src="images/blog-2.jpg"
+            alt="https://unsplash.com/photos/glass-cup-filled-with-ice-latte-on-tabletop-L-sm1B4L1Ns" />
+        </div>
+        <div class="content">
+          <a class="title">Coffee Chronicles: Global Exploration of Flavor</a>
+          <span>by admin / July 07, 2024</span>
+          <p>
+            Explore global coffee flavors from Jamaica Blue Mountain to Brazil's Santos, featuring Panama Geisha and
+            Kenya AA beans.
+          </p>
+          <a title="Read More" onclick="openPopup(2)" class="btn">read more</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="image">
+          <img src="images/blog-3.jpg"
+            alt="https://unsplash.com/photos/white-ceramic-tea-cup-beside-white-flowers-FO4gzqI2t84" />
+        </div>
+        <div class="content">
+          <a class="title">Coffee Culture Chronicles: From Bean to Brew</a>
+          <span>by admin / March 03, 2024</span>
+          <p>
+            Embark on a sensory journey through coffee: trace its origins, explore diverse flavors, and discover
+            techniques for an elevated experience.
+          </p>
+          <a title="Read More" onclick="openPopup(3)" class="btn">read more</a>
+        </div>
+      </div>
+
+      <!-- new -->
+      <div id="popup1" class="popup">
+        <span class="arrow left" onclick="openPopup(3)">&lt;</span>
+        <span class="arrow right" onclick="openPopup(2)">&gt;</span>
+        <span class="close-button" onclick="closePopup()">×</span>
+        <div class="content-Window">
+          <div class="heading-Window">Exploring Coffee: Flavors and Cultures</div>
+          <div class="date">Date: 2024-06-27</div>
+          <div class="description">Join us on a tantalizing journey through the rich tapestry of the world of coffee,
+            where every sip unveils a unique narrative. Experience the robust, earthy flavors of Ethiopian Yirgacheffe
+            and the smooth, velvety elegance of Colombian Supremo. Delve into the intricate artistry of various beans
+            and brewing methods that craft distinct and memorable coffee experiences. Whether you're a seasoned coffee
+            connoisseur or just embarking on your caffeinated adventure, this blog promises to ignite your senses,
+            deepen your understanding, and foster a newfound appreciation for this beloved beverage.</div>
+        </div>
+      </div>
+
+      <div id="popup2" class="popup">
+        <span class="arrow left" onclick="openPopup(1)">&lt;</span>
+        <span class="arrow right" onclick="openPopup(3)">&gt;</span>
+        <span class="close-button" onclick="closePopup()">×</span>
+        <div class="content-Window">
+          <div class="heading-Window">Coffee Chronicles: Global Exploration of Flavor</div>
+          <div class="date">Date: 2024-07-07</div>
+          <div class="description">Dive into the world of coffee with us as we embark on a global journey of flavor.
+            From the misty mountains of Jamaica Blue Mountain to the sun-drenched plantations of Brazil's Santos region,
+            each cup tells a tale of terroir and craftsmanship. Discover the nuances of specialty beans like Panama
+            Geisha and Kenya AA, and uncover brewing methods that bring out their best. Whether you're a curious
+            beginner or a seasoned enthusiast, let's explore how coffee connects cultures and captivates palates
+            worldwide.</div>
+        </div>
+      </div>
+
+      <div id="popup3" class="popup">
+        <span class="arrow left" onclick="openPopup(2)">&lt;</span>
+        <span class="arrow right" onclick="openPopup(1)">&gt;</span>
+        <span class="close-button" onclick="closePopup()">×</span>
+        <div class="content-Window">
+          <div class="heading-Window">Coffee Culture Chronicles: From Bean to Brew</div>
+          <div class="date">Date: 2024-03-03</div>
+          <div class="description">Embark on a sensory journey through the world of coffee, where each cup tells a
+            story. Explore diverse flavors, from the earthy tones of South American blends to the bright acidity of
+            African roasts. Discover brewing techniques that enhance these flavors, from pour-over to espresso. Join us
+            in celebrating the complexities and cultural richness that make coffee a beloved global phenomenon.</div>
+        </div>
+      </div>
+
+      <div id="overlay" class="overlay"></div>
+    </div>
+  </section>
+
+  <!-- blogs section ends -->
+
+  <!-- footer section starts  -->
+
+  <section class="footer">
+    <div class="share">
+      <a href="https://www.facebook.com/" target="_blank" class="fab fa-facebook-f"></a>
+      <a href="https://x.com/" target="_blank" class="fab fa-twitter"></a>
+      <a href="https://www.instagram.com/" target="_blank" class="fab fa-instagram"></a>
+      <a href="https://www.linkedin.com/" target="_blank" class="fab fa-linkedin"></a>
+    </div>
+
+    <div class="links">
+      <p class="copyrightpara">© 2024 by @AzureSkyCafé</p>
+      <button id="upButton" onclick="scrollToTop()">
+        <span class="arrow-up"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- footer section ends -->
+
+  <!-- custom js file link  -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
